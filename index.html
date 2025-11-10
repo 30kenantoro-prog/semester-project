@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boyish & Bold Website</title>
+    <style>
+      /* Reset styles */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Arial Black", sans-serif;
+        background-color: #1e1e2f; /* Dark navy */
+        color: #fff;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Corner menu button on the top left */
+      #menu-toggle {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background-color: #ff6f00;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      /* Container for nav buttons in top left corner */
+      #nav-buttons {
+        position: fixed;
+        top: 70px;
+        left: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background-color: rgba(15, 27, 46, 0.9);
+        padding: 10px;
+        border-radius: 10px;
+        display: none;
+        z-index: 999;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Navigation buttons inside the toggle container */
+      #nav-buttons button {
+        background-color: #ff6f00;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      #nav-buttons button:nth-child(1) {
+        background-color: #ff6f00;
+      }
+      #nav-buttons button:nth-child(2) {
+        background-color: #00695c;
+      }
+      #nav-buttons button:nth-child(3) {
+        background-color: #3e2723;
+      }
+      #nav-buttons button:nth-child(4) {
+        background-color: #1976d2;
+      }
+
+      #nav-buttons button:hover {
+        transform: translateY(-2px);
+        opacity: 0.9;
+      }
+
+      /* Main content styles */
+      main {
+        flex: 1;
+        max-width: 1000px;
+        margin: 30px auto;
+        padding: 40px 20px;
+        background: rgba(30, 30, 47, 0.8);
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(5px);
+        transition: all 0.3s ease;
+      }
+
+      /* Headings styles */
+      h1,
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        font-size: 2.5em;
+        color: #ffd700;
+      }
+
+      h2 {
+        font-size: 2em;
+        color: #00bcd4;
+      }
+
+      /* Paragraph styles */
+      p {
+        font-size: 1em;
+        line-height: 1.6;
+        margin: 20px 0;
+        text-align: justify;
+      }
+
+      /* Links styling */
+      a {
+        color: #ffcc00;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 600px) {
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Corner menu toggle button -->
+    <button id="menu-toggle" onclick="toggleMenu()">Menu</button>
+
+    <!-- Navigation buttons container -->
+    <div id="nav-buttons">
+      <button onclick="showHome()">Home</button>
+      <button onclick="showArticle()">Article</button>
+      <button onclick="showAbout()">About Me</button>
+      <button onclick="showContact()">Contact Me</button>
+    </div>
+
+    <header></header>
+
+    <main id="content">
+      <!-- Default page: Home -->
+      <h1>Welcome to My Website!</h1>
+      <p>
+        Hi! Welcome to my website titled “The Importance of Tolerance in Life.”
+        I created this website to share information about why tolerance is
+        important in our daily lives.
+      </p>
+      <p>
+        On this website, you can read my article about tolerance, get to know me
+        better on the About Me page, and also contact me through the Contact Me
+        page.
+      </p>
+      <p>
+        I hope that through this website, everyone can learn to respect
+        differences and live peacefully with others. I also hope this website
+        can be useful and enjoyable to read!
+      </p>
+    </main>
+
+    <script>
+      let menuVisible = false;
+
+      function toggleMenu() {
+        menuVisible = !menuVisible;
+        document.getElementById("nav-buttons").style.display = menuVisible
+          ? "flex"
+          : "none";
+      }
+
+      function showHome() {
+        document.getElementById("content").innerHTML = `
+      <h1>Welcome to My Website!</h1>
+      <p>
+        Hi! Welcome to my website titled “The Importance of Tolerance in Life.” I created this website to share information about why tolerance is important in our daily lives.
+      </p>
+      <p>
+        On this website, you can read my article about tolerance, get to know me better on the About Me page, and also contact me through the Contact Me page.
+      </p>
+      <p>
+        I hope that through this website, everyone can learn to respect differences and live peacefully with others. I also hope this website can be useful and enjoyable to read!
+      </p>
+    `;
+        toggleMenu();
+      }
+
+      function showArticle() {
+        document.getElementById("content").innerHTML = `
+      <h2>Pentingnya Toleransi Dalam Kehidupan</h2>
+      <p>
+        Toleransi berarti sikap saling menghormati, menghargai, dan menerima perbedaan antara satu sama lain. Setiap orang memiliki latar belakang, agama, budaya, dan cara berpikir yang berbeda, tetapi semua harus hidup bersama secara damai. Nilai ini mencerminkan sila pertama Pancasila, yaitu Ketuhanan Yang Maha Esa. Melalui sila ini, kita diajarkan untuk menghormati dan menghargai semua agama serta keyakinan. Contohnya, saat teman berdoa di sekolah, kita menjaga ketenangan agar tidak mengganggu, atau ketika umat lain merayakan hari besar agamanya, kita bisa memberi ucapan selamat. Dengan menghormati keyakinan orang lain, kita ikut menciptakan suasana yang damai, penuh rasa saling percaya, dan sesuai dengan nilai Ketuhanan.
+        Kehidupan dapat diartikan sebagai perjalanan manusia untuk tumbuh, belajar, dan membangun hubungan dengan sesama. Dalam kehidupan, setiap manusia memiliki hak dan kewajiban yang sama untuk dihormati. Hal ini sejalan dengan sila kedua, Kemanusiaan yang Adil dan Beradab, yang mengajarkan kita untuk menghargai martabat manusia tanpa membeda-bedakan. Sikap toleransi dalam kehidupan berarti memperlakukan semua orang dengan adil dan sopan. Misalnya, membantu teman tanpa memandang agamanya, atau berbagi makanan dengan teman yang mungkin berbeda keyakinan. Dengan menghormati sesama, kita dapat menciptakan kehidupan yang damai, adil, dan beradab di tengah masyarakat yang beragam.
+        Dalam kehidupan sehari-hari, banyak sekali contoh sikap toleransi yang bisa kita temukan dan lakukan. Contoh sederhana seperti bekerja sama dalam tugas kelompok dengan teman yang memiliki pendapat berbeda, atau ikut menjaga kebersihan lingkungan bersama warga sekitar yang berasal dari berbagai suku dan agama. Semua tindakan ini mencerminkan sila ketiga, Persatuan Indonesia. Sila ini menekankan bahwa walaupun kita berbeda, kita tetap satu bangsa yang memiliki tujuan yang sama. Dengan menjaga persatuan dan menghargai perbedaan, kita bisa memperkuat rasa kebangsaan dan membuat Indonesia semakin harmonis. Sikap toleran menjadi kunci utama agar keragaman tidak menjadi alasan perpecahan, tetapi justru sumber kekuatan.
+        Cara kita bersikap toleransi juga bisa ditunjukkan dalam cara berkomunikasi dan mengambil keputusan. Sila keempat, Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan, mengajarkan kita pentingnya bermusyawarah dengan bijak. Dalam kehidupan sehari-hari, hal ini bisa terlihat ketika kita berdiskusi di kelas atau rapat kelompok. Kita sebaiknya mendengarkan pendapat teman dengan sabar dan tidak memaksakan kehendak sendiri. Dengan bermusyawarah, setiap orang bisa menyampaikan pendapatnya dan keputusan 
+        yang diambil menjadi lebih adil serta diterima oleh semua pihak. Bersikap bijak dan terbuka seperti ini adalah salah satu bentuk nyata dari toleransi.
+        Menunjukkan toleransi tidak hanya lewat ucapan, tetapi juga lewat tindakan nyata yang membawa kebaikan bagi semua. Sila kelima, Keadilan Sosial bagi Seluruh Rakyat Indonesia, menegaskan bahwa setiap orang berhak mendapatkan perlakuan yang adil. Dalam kehidupan sehari-hari, kita bisa menunjukkan toleransi dengan tidak membeda-bedakan teman, membantu orang yang membutuhkan, dan menghormati hak orang lain. Ketika kita mampu memperlakukan semua orang dengan setara, tanpa melihat agama, suku, atau status sosial, maka kita telah menerapkan nilai keadilan sosial. Toleransi yang dijalankan dengan tulus akan menciptakan masyarakat yang damai, rukun, dan penuh rasa kebersamaan. Jika semua orang menerapkan nilai-nilai ini, maka cita-cita bangsa Indonesia untuk hidup adil dan sejahtera dapat terwujud.
+      </p>
+    `;
+        toggleMenu();
+      }
+
+      function showAbout() {
+        document.getElementById("content").innerHTML = `
+        <h2>About Me</h2>
+<p>
+  Hello! My name is Ken Marcio Antoro. I created this website as part of a school assignment about the importance of tolerance in life.
+</p>
+<p>
+  I believe that the attitude of tolerance is very important to maintain harmony and peace, especially in school and community environments. Through this website, I want to invite everyone to better understand the meaning of tolerance and how to apply it in daily life.
+</p>
+<p>
+  Thank you for visiting my website! Don't forget to read my article and contact me through the Contact Me page if you want to give suggestions or messages.
+</p>
+    `;
+        toggleMenu();
+      }
+
+      function showContact() {
+        // Generate random phone number and email
+        const randPhone =
+          "0" + Math.floor(100000000 + Math.random() * 900000000);
+        const emails = [
+          "contact@example.com",
+          "hello@domain.com",
+          "info@website.com",
+          "user@domain.com",
+          "mail@service.com",
+        ];
+        const randEmail = emails[Math.floor(Math.random() * emails.length)];
+
+        document.getElementById("content").innerHTML = `
+      <h2>Contact Me</h2>
+      <p>Phone: ${randPhone}</p>
+      <p>Email: <a href="mailto:${randEmail}">${randEmail}</a></p>
+    `;
+        toggleMenu();
+      }
+    </script>
+  </body>
+</html>
